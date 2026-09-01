@@ -1,6 +1,4 @@
-import { useCallback, useState } from "react";
-import { ChildComponent } from "./components/ChildComponent";
-import UsersSortingDemo from "./components/UsersSortingDemo";
+import { SearchBox } from "./components/SearchBox";
 
 
 function App() {
@@ -27,7 +25,8 @@ function App() {
         <button onClick={() => setCount(count + 1)}>Increament</button>
         <ChildComponent onClick={handleClickFunction} />
       </div> */}
-      <UsersSortingDemo />
+      {/* <UsersSortingDemo /> */}
+      <SearchBox />
     </>
   )
 }
