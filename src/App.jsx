@@ -1,4 +1,4 @@
-import { SearchBox } from "./components/SearchBox";
+import ScrollTracker from "./components/ScrollTracker";
 
 
 function App() {
@@ -26,7 +26,8 @@ function App() {
         <ChildComponent onClick={handleClickFunction} />
       </div> */}
       {/* <UsersSortingDemo /> */}
-      <SearchBox />
+      {/* <SearchBox /> */}
+      <ScrollTracker />
     </>
   )
 }
