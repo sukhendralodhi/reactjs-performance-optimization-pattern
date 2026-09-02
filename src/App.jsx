@@ -1,4 +1,4 @@
-import ScrollTracker from "./components/ScrollTracker";
+import UserProfile from "./components/user/UserProfile";
 
 
 function App() {
@@ -27,7 +27,9 @@ function App() {
       </div> */}
       {/* <UsersSortingDemo /> */}
       {/* <SearchBox /> */}
-      <ScrollTracker />
+      {/* <ScrollTracker /> */}
+      {/* <h1 className="text-2xl font-bold">Hello, React!</h1> */}
+      <UserProfile userId={2} />
     </>
   )
 }
