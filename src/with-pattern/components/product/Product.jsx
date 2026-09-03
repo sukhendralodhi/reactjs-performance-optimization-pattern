@@ -1,5 +1,5 @@
 
-const Product = ({ product }) => {
+const Product = ({ product, onAddCart }) => {
     const hasSalePrice = product.originalPrice && Number(product.originalPrice) > Number(product.price);
     const isInStock = product.inStock ?? Number(product.stock) > 0;
     const initials = product.name?.split(" ").filter(Boolean).slice(0, 2).map((word) => word[0]).join("") || "P";
@@ -34,7 +34,7 @@ const Product = ({ product }) => {
                     )}
                 </div>
                 <div className="flex justify-end mt-4">
-                    <button className="bg-blue-600 text-sm text-white m-2 px-2 py-1 rounded">Add To Cart</button>
+                    <button onClick={() => onAddCart(product.id)} className="bg-blue-600 text-sm text-white m-2 px-2 py-1 rounded">Add To Cart</button>
                 </div>
             </div>
         </article>

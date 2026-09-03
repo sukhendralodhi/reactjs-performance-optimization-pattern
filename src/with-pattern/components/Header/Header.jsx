@@ -31,6 +31,12 @@ const Header = () => {
                     >
                         Products
                     </Link>
+                    <Link
+                        to="/cart"
+                        className="text-sm font-medium text-gray-600 transition-colors hover:text-blue-600"
+                    >
+                        Cart
+                    </Link>
                 </nav>
 
                 {/* Mobile Menu Button */}
@@ -94,6 +100,14 @@ const Header = () => {
                             className="rounded-lg bg-blue-600 px-4 py-3 text-center text-sm font-medium text-white transition hover:bg-blue-700"
                         >
                             Products
+                        </Link>
+
+                        <Link
+                            to="/cart"
+                            onClick={() => setIsOpen(false)}
+                            className="rounded-lg px-4 py-3 text-sm font-medium text-gray-700 transition hover:bg-gray-100 hover:text-blue-600"
+                        >
+                            Cart
                         </Link>
                     </div>
                 </nav>
