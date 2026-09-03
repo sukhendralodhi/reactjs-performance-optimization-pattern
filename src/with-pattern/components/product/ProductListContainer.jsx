@@ -23,6 +23,14 @@ const ProductListContainer = () => {
         }
     }
 
+    const handleGetcategory = async () => {
+        try {
+            const response = await axios.get(``)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     useEffect(() => {
         handleFetchproducts();
     }, []);
@@ -30,6 +38,20 @@ const ProductListContainer = () => {
     const handleRetry = () => {
         handleFetchproducts();
     }
+    const handleAddProductToCart = async (productId) => {
+        try {
+            const response = await axios.post(
+                `${import.meta.env.VITE_API_URL}/cart`,
+                {
+                    productId: productId
+                }
+            );
+
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     if (loading) {
         return <LoadingSpinner message="Loading product..." />
@@ -53,9 +75,19 @@ const ProductListContainer = () => {
                     </span>
                 </div>
 
+                <div>
+                    <select>
+                        <option value="electronic">Electronics</option>
+                         <option value="clothing">Clothing</option>
+                         <option value="books">Books</option>
+                          <option value="home kitechen">Home & Garden</option>
+                          <option value="">Home & Garden</option>
+                    </select>
+                </div>
+
                 {products.length ? (
                     <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-                        {products.map((product) => <Product key={product.id} product={product} />)}
+                        {products.map((product) => <Product onAddCart={handleAddProductToCart} key={product.id} product={product} />)}
                     </div>
                 ) : (
                     <div className="rounded-3xl border border-dashed border-slate-300 bg-white px-6 py-16 text-center shadow-sm">

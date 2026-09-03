@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Header from "./with-pattern/components/Header/Header";
+import MyCartContainer from "./with-pattern/components/product/cart/MyCartContainer";
 import ProductListContainer from "./with-pattern/components/product/ProductListContainer";
 import UserProfileContainer from "./with-pattern/components/profile/UserProfileContainer";
 
@@ -38,6 +39,7 @@ function App() {
         <Routes>
           <Route path="/" element={<UserProfileContainer userId={1} />} />
           <Route path="/products" element={<ProductListContainer />} />
+          <Route path="/cart" element={<MyCartContainer />} />
         </Routes>
       </main>
     </>
