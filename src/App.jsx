@@ -1,4 +1,7 @@
-import UserProfile from "./components/user/UserProfile";
+import { Route, Routes } from "react-router-dom";
+import Header from "./with-pattern/components/Header/Header";
+import ProductListContainer from "./with-pattern/components/product/ProductListContainer";
+import UserProfileContainer from "./with-pattern/components/profile/UserProfileContainer";
 
 
 function App() {
@@ -14,7 +17,7 @@ function App() {
   //   console.log("Function Called!");
   // }
 
-  console.log("Parent component rendred");
+  // console.log("Parent component rendred");
 
   return (
 
@@ -29,7 +32,14 @@ function App() {
       {/* <SearchBox /> */}
       {/* <ScrollTracker /> */}
       {/* <h1 className="text-2xl font-bold">Hello, React!</h1> */}
-      <UserProfile userId={2} />
+      {/* <UserProfile userId={2} /> */}
+      <Header />
+      <main>
+        <Routes>
+          <Route path="/" element={<UserProfileContainer userId={1} />} />
+          <Route path="/products" element={<ProductListContainer />} />
+        </Routes>
+      </main>
     </>
   )
 }
