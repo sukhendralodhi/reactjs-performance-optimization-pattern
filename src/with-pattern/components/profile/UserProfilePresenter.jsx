@@ -1,7 +1,7 @@
 import { useState } from "react";
-import ErrorComponent from "../common-components/ErrorComponent";
-import LoadingSpinner from "../common-components/LoadingSpinner";
-import PostList from "./PostList";
+import ErrorComponent from "../../common-components/ErrorComponent";
+import LoadingSpinner from "../../common-components/LoadingSpinner";
+import PostList from "../post/PostList";
 import ProfileHeader from "./ProfileHeader";
 
 
@@ -19,11 +19,21 @@ const UserProfilePresenter = (
     const [isEditing, setIsEditing] = useState(false);
     const [formData, setFormData] = useState({});
 
-    const handleSaveProfile = async () => {
+    const handleSaveProfile = async (event) => {
+        event.preventDefault();
         const result = await onUpdateUser(formData);
         if (result.success) {
             setIsEditing(false);
         }
+    }
+
+    const handleStartEdit = () => {
+        setFormData({
+            name: user.name,
+            email: user.email,
+            bio: user.bio
+        });
+        setIsEditing(true);
     }
 
     const handleCancelEdit = () => {
@@ -37,10 +47,11 @@ const UserProfilePresenter = (
         }
     }
 
-    const handleInputChange = (field, value) => {
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
         setFormData((prev) => ({
             ...prev,
-            [field]: value,
+            [name]: value,
         }));
     }
 
@@ -78,7 +89,7 @@ const UserProfilePresenter = (
                     user={user}
                     isEditing={isEditing}
                     formData={formData}
-                    onStartEdit={() => setIsEditing(true)}
+                    onStartEdit={handleStartEdit}
                     onInputChange={handleInputChange}
                     onCancelEdit={handleCancelEdit}
                     onSaveProfile={handleSaveProfile}

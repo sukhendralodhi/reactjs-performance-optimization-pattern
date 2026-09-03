@@ -31,6 +31,7 @@ const ProfileHeader = ({
                             <label className="block text-sm font-medium text-slate-700">Name</label>
                             <input
                                 type="text"
+                                name="name"
                                 value={formData.name}
                                 onChange={onInputChange}
                                 className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-slate-800 outline-none transition focus:border-sky-400 focus:bg-white focus:ring-4 focus:ring-sky-100"
@@ -41,6 +42,7 @@ const ProfileHeader = ({
                             <label className="block text-sm font-medium text-slate-700">Email</label>
                             <input
                                 type="email"
+                                name="email"
                                 value={formData.email}
                                 onChange={onInputChange}
                                 className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-slate-800 outline-none transition focus:border-sky-400 focus:bg-white focus:ring-4 focus:ring-sky-100"
@@ -50,6 +52,7 @@ const ProfileHeader = ({
                         <div className="space-y-2">
                             <label className="block text-sm font-medium text-slate-700">Bio</label>
                             <textarea
+                                name="bio"
                                 value={formData.bio}
                                 onChange={onInputChange}
                                 rows="4"

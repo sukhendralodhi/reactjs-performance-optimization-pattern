@@ -38,15 +38,15 @@ const UserProfileContainer = ({ userId }) => {
     }
 
     const handleUpdateUser = async (updatedUserData) => {
-        e.preventDefault();
         try {
             setLoading(true);
-            const response = await axios.put(`${import.meta.env.VITE_API_URL}/users/${userId}`, formData);
+            const response = await axios.put(`${import.meta.env.VITE_API_URL}/users/${userId}`, updatedUserData);
             // console.log(response.data);
             setUser(response.data);
-            setIsEditing(false);
+            return { success: true };
         } catch (error) {
             setError(error);
+            return { success: false };
         } finally {
             setLoading(false);
         }

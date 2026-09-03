@@ -1,4 +1,7 @@
-import UserProfileContainer from "./with-pattern/components/UserProfileContainer";
+import { Route, Routes } from "react-router-dom";
+import Header from "./with-pattern/components/Header/Header";
+import ProductListContainer from "./with-pattern/components/product/ProductListContainer";
+import UserProfileContainer from "./with-pattern/components/profile/UserProfileContainer";
 
 
 function App() {
@@ -30,7 +33,13 @@ function App() {
       {/* <ScrollTracker /> */}
       {/* <h1 className="text-2xl font-bold">Hello, React!</h1> */}
       {/* <UserProfile userId={2} /> */}
-      <UserProfileContainer userId={1} />
+      <Header />
+      <main>
+        <Routes>
+          <Route path="/" element={<UserProfileContainer userId={1} />} />
+          <Route path="/products" element={<ProductListContainer />} />
+        </Routes>
+      </main>
     </>
   )
 }
