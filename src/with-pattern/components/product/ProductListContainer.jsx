@@ -9,12 +9,30 @@ const ProductListContainer = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+    const [categories, setCategories] = useState([]);
+    const [category, setCategory] = useState();
+
+    console.log(category)
+
+    const handleCategoryChange = (event) => {
+        // console.log(event.target.value); 
+        setCategory(event.target.value);
+    }
 
     const handleFetchproducts = async () => {
         try {
             setLoading(true);
-            const response = await axios.get(`${import.meta.env.VITE_API_URL}/products`);
-            console.log(response.data);
+            let response;
+
+            if (category) {
+                response = await axios.get(
+                    `${import.meta.env.VITE_API_URL}/api/products?category=${category}`
+                );
+            } else {
+                response = await axios.get(
+                    `${import.meta.env.VITE_API_URL}/products`
+                );
+            }
             setProducts(response.data);
         } catch (error) {
             setError(error);
@@ -25,7 +43,9 @@ const ProductListContainer = () => {
 
     const handleGetcategory = async () => {
         try {
-            const response = await axios.get(``)
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/categories`);
+            // console.log(response.data)
+            setCategories(response.data);
         } catch (error) {
             console.log(error)
         }
@@ -33,6 +53,10 @@ const ProductListContainer = () => {
 
     useEffect(() => {
         handleFetchproducts();
+    }, [category]);
+
+    useEffect(() => {
+        handleGetcategory();
     }, []);
 
     const handleRetry = () => {
@@ -75,13 +99,14 @@ const ProductListContainer = () => {
                     </span>
                 </div>
 
-                <div>
-                    <select>
-                        <option value="electronic">Electronics</option>
-                         <option value="clothing">Clothing</option>
-                         <option value="books">Books</option>
-                          <option value="home kitechen">Home & Garden</option>
-                          <option value="">Home & Garden</option>
+                <div className="mb-8 border flex justify-center border-gray-300 py-2 px-2 rounded shadow-sm">
+                    <select className="border border-gray-600 px-2 py-1 rounded" onChange={handleCategoryChange}>
+                        <option value="">Select Category</option>
+                        {
+                            categories.map((category) => (
+                                <option key={category.id} value={category.id}>{category.name}</option>
+                            ))
+                        }
                     </select>
                 </div>
 
