@@ -1,6 +1,7 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+import UserProfilePresenter from "./UserProfilePresenter";
 
 const UserProfileContainer = ({ userId }) => {
 
@@ -13,15 +14,8 @@ const UserProfileContainer = ({ userId }) => {
         try {
             setLoading(true);
             const response = await axios.get(`${import.meta.env.VITE_API_URL}/users/${userId}`);
-            console.log(response.data);
+            // console.log(response.data);
             setUser(response.data);
-            setFormData(
-                {
-                    name: response.data.name,
-                    email: response.data.email,
-                    bio: response.data.bio,
-                }
-            );
         } catch (error) {
             setError(error);
         } finally {
@@ -33,7 +27,7 @@ const UserProfileContainer = ({ userId }) => {
         try {
             setLoading(true);
             const response = await axios.get(`${import.meta.env.VITE_API_URL}/users/${userId}/posts`);
-            console.log(response.data);
+            // console.log(response.data);
             const postData = Array.isArray(response.data) ? response.data : [response.data];
             setPosts(postData.filter(Boolean));
         } catch (error) {
@@ -43,14 +37,47 @@ const UserProfileContainer = ({ userId }) => {
         }
     }
 
+    const handleUpdateUser = async (updatedUserData) => {
+        e.preventDefault();
+        try {
+            setLoading(true);
+            const response = await axios.put(`${import.meta.env.VITE_API_URL}/users/${userId}`, formData);
+            // console.log(response.data);
+            setUser(response.data);
+            setIsEditing(false);
+        } catch (error) {
+            setError(error);
+        } finally {
+            setLoading(false);
+        }
+    }
+
+
     useEffect(() => {
         fetchUserData();
         fetchPostsData();
     }, [userId]);
 
-    
+    const handleRetry = () => {
+        fetchUserData();
+        fetchPostsData();
+    }
+
+    // console.log(user);
+    // console.log(posts);
+
+
     return (
-        <div>UserProfileContainer</div>
+        <>
+            <UserProfilePresenter
+                user={user}
+                posts={posts}
+                loading={loading}
+                error={error}
+                onRetry={handleRetry}
+                onUpdateUser={handleUpdateUser}
+            />
+        </>
     );
 }
 

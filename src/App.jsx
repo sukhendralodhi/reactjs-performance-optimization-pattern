@@ -1,4 +1,4 @@
-import UserProfile from "./components/user/UserProfile";
+import UserProfileContainer from "./with-pattern/components/UserProfileContainer";
 
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
   //   console.log("Function Called!");
   // }
 
-  console.log("Parent component rendred");
+  // console.log("Parent component rendred");
 
   return (
 
@@ -29,7 +29,8 @@ function App() {
       {/* <SearchBox /> */}
       {/* <ScrollTracker /> */}
       {/* <h1 className="text-2xl font-bold">Hello, React!</h1> */}
-      <UserProfile userId={2} />
+      {/* <UserProfile userId={2} /> */}
+      <UserProfileContainer userId={1} />
     </>
   )
 }
