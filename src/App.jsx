@@ -1,4 +1,4 @@
-import ControlledForm from "./controlled-uncontrolled-components/usestate/ControlledForm";
+import UncontrolledForm from "./controlled-uncontrolled-components/uncontrolledform/UncontrolledForm"
 
 
 function App() {
@@ -43,7 +43,7 @@ function App() {
       {/* <AutoFocusInput /> */}
       {/* <CounterWithRef /> */}
       {/* <FeedbackForm /> */}
-      <ControlledForm />
+      <UncontrolledForm />
     </>
   )
 }
