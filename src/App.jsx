@@ -1,4 +1,4 @@
-import LazyLoading from "./perform-optimization/LazyLoading"
+import RowContainer from "./vertualization/RowContainer"
 
 
 function App() {
@@ -45,7 +45,8 @@ function App() {
       {/* <FeedbackForm /> */}
       {/* <UncontrolledForm /> */}
       {/* <NonLazyLoading /> */}
-      <LazyLoading />
+      {/* <LazyLoading /> */}
+      <RowContainer />
     </>
   )
 }
