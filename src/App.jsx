@@ -1,4 +1,4 @@
-import LazyLoading from "./perform-optimization/LazyLoading"
+import ProductContainer from "./use-transition-hook/ProductContainer"
 
 
 function App() {
@@ -45,7 +45,9 @@ function App() {
       {/* <FeedbackForm /> */}
       {/* <UncontrolledForm /> */}
       {/* <NonLazyLoading /> */}
-      <LazyLoading />
+      {/* <LazyLoading /> */}
+      {/* <RowContainer /> */}
+      <ProductContainer />
     </>
   )
 }
