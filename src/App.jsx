@@ -1,8 +1,4 @@
-import { Route, Routes } from "react-router-dom";
-import Header from "./with-pattern/components/Header/Header";
-import MyCartContainer from "./with-pattern/components/product/cart/MyCartContainer";
-import ProductListContainer from "./with-pattern/components/product/ProductListContainer";
-import UserProfileContainer from "./with-pattern/components/profile/UserProfileContainer";
+import CounterWithRef from "./controlled-uncontrolled-components/state-ref/components/CounterWithRef";
 
 
 function App() {
@@ -34,14 +30,18 @@ function App() {
       {/* <ScrollTracker /> */}
       {/* <h1 className="text-2xl font-bold">Hello, React!</h1> */}
       {/* <UserProfile userId={2} /> */}
-      <Header />
+      {/* <Header />
       <main>
         <Routes>
           <Route path="/" element={<UserProfileContainer userId={1} />} />
           <Route path="/products" element={<ProductListContainer />} />
           <Route path="/cart" element={<MyCartContainer />} />
         </Routes>
-      </main>
+      </main> */}
+
+      {/* <Counter /> */}
+      {/* <AutoFocusInput /> */}
+      <CounterWithRef />
     </>
   )
 }
