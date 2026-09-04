@@ -1,4 +1,4 @@
-import UncontrolledForm from "./controlled-uncontrolled-components/uncontrolledform/UncontrolledForm"
+import LazyLoading from "./perform-optimization/LazyLoading"
 
 
 function App() {
@@ -43,7 +43,9 @@ function App() {
       {/* <AutoFocusInput /> */}
       {/* <CounterWithRef /> */}
       {/* <FeedbackForm /> */}
-      <UncontrolledForm />
+      {/* <UncontrolledForm /> */}
+      {/* <NonLazyLoading /> */}
+      <LazyLoading />
     </>
   )
 }
