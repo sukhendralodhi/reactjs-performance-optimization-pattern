@@ -1,4 +1,6 @@
-import ProductContainer from "./use-transition-hook/ProductContainer"
+import { useState } from 'react';
+import './App.css';
+import Modal from './day-03/with-pattern/Modal';
 
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
   // }
 
   // console.log("Parent component rendred");
+
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
 
@@ -47,7 +51,38 @@ function App() {
       {/* <NonLazyLoading /> */}
       {/* <LazyLoading /> */}
       {/* <RowContainer /> */}
-      <ProductContainer />
+      {/* <ProductContainer /> */}
+      {/* <Modal
+        title="Delete account"
+        body="Are you sure you want to delete your account"
+        primaryAction={<button>Delete</button>}
+        secondaryAction={<button>Cancel</button>}
+      /> */}
+
+      <div className='flex flex-col justify-center items-center'>
+
+        <button onClick={() => setIsOpen(true)}>Open Modal</button>
+
+        <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+
+          <Modal.Header>
+            <h1>Welcome</h1>
+          </Modal.Header>
+
+          <Modal.Body>
+            <p>
+              This modal build with the Compound Component Pattern.
+            </p>
+          </Modal.Body>
+
+          <Modal.Footer>
+            <button onClick={() => setIsOpen(false)}>Close</button>
+            <button onClick={() => alert("Action performed!")}>Do Action</button>
+            <button>Help!</button>
+          </Modal.Footer>
+
+        </Modal>
+      </div>
     </>
   )
 }
