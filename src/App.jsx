@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import Profile from './with-pattern/tab/Profile';
+import MouseTracker from './render-props-pattern/with-pattern/MouseTracker';
 
 
 function App() {
@@ -101,7 +101,15 @@ function App() {
       {/* <div className='flex justify-center items-center min-h-screen'>
         <ProductCard />
       </div> */}
-      <Profile />
+      {/* <Profile /> */}
+      {/* <CarTracker /> */}
+      {/* <BikeTracker /> */}
+      <MouseTracker
+        render={(position) => (<p>🚗 Car is at- (X: {position.x} Y:{position.y})</p>)}
+      />
+      <MouseTracker
+        render={(position) => (<p>🚴 Bike is at- (X: {position.x} Y:{position.y})</p>)}
+      />
     </>
   )
 }
