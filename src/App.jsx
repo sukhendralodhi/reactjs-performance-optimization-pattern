@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import MouseTracker from './render-props-pattern/with-pattern/MouseTracker';
+import MovieWithHoc from './hoc-patterns/MovieWithHoc';
 
 
 function App() {
@@ -104,12 +104,14 @@ function App() {
       {/* <Profile /> */}
       {/* <CarTracker /> */}
       {/* <BikeTracker /> */}
-      <MouseTracker
+      {/* <MouseTracker
         render={(position) => (<p>🚗 Car is at- (X: {position.x} Y:{position.y})</p>)}
       />
       <MouseTracker
         render={(position) => (<p>🚴 Bike is at- (X: {position.x} Y:{position.y})</p>)}
-      />
+      /> */}
+
+      <MovieWithHoc />
     </>
   )
 }
